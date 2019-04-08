@@ -79,20 +79,31 @@
                 </div>
             @endif
 
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+
             <div class="content">
-                <div class="title m-b-md">
-                    Laravel
+
+                {!! Form::open(['route' => 'evaluar', 'method' => 'POST', 'name' => 'Form']) !!}
+
+                {{ csrf_field() }}
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            {!! Form::label('claseAprobacion', 'Aprobacion') !!}
+                            {!! Form::text('claseAprobacion', null, ['class' => 'form-control', 'id' => 'claseAprobacion']) !!}
+                        </div>
+                    </div>
                 </div>
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
+                <div class="button-box m-t-20">
+                            {!! Form::button('<span class="btn-label"><i class="ti-save"></i></span> <span class="ladda-label">Guardar Aprobacion</span><span class="ladda-spinner"></span>', ['class' => 'btn btn-info waves-effect waves-light ladda-button', 'type' => 'submit', 'id' => 'AprobacionesBtn', 'data-style' => 'expand-right']) !!}
+                        </div>
+
+                    {!! Form::close() !!}
+
             </div>
         </div>
     </body>

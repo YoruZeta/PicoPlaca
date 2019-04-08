@@ -12,5 +12,8 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('matricula');
 });
+
+//Route::post('pico', 'PicoPlacaController@evaluar);
+Route::post('matricula/evaluar', 'PicoPlacaController@evaluar')->name('evaluar');
